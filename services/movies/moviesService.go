@@ -53,6 +53,7 @@ func GetMovies() (*[]movieModel.MovieBasicDetailResponse, error) {
 			Category:     datum.Category,
 			Views:        datum.Views,
 			TrailerLink:  datum.TrailerLink,
+			MovieImage:   datum.MovieImage,
 		}
 	}
 
@@ -78,6 +79,7 @@ func GetMoviesByTitle(name string) ([]movieModel.MovieBasicDetailResponse, error
 				Category:     datum.Category,
 				Views:        datum.Views,
 				TrailerLink:  datum.TrailerLink,
+				MovieImage:   datum.MovieImage,
 			})
 		}
 	}
@@ -97,7 +99,7 @@ func GetTopMovies(count int) ([]movieModel.MovieBasicDetailResponse, error) {
 	// for i := 0; i < count; i++ {
 
 	// movieModel
-	var maxRating int = -999
+	var maxRating float32 = -999
 	var j int = 0
 	for i := 0; i < len(all); i++ {
 		// movieModel.Sample_data
@@ -111,6 +113,7 @@ func GetTopMovies(count int) ([]movieModel.MovieBasicDetailResponse, error) {
 				Category:     all[i].Category,
 				Views:        all[i].Views,
 				TrailerLink:  all[i].TrailerLink,
+				MovieImage:   all[i].MovieImage,
 			}
 
 			tops[j] = cur
@@ -153,6 +156,7 @@ func GetMoviesByCategory(categoryName string) ([]movieModel.MovieBasicDetailResp
 				Category:     all[i].Category,
 				Views:        all[i].Views,
 				TrailerLink:  all[i].TrailerLink,
+				MovieImage:   all[i].MovieImage,
 			}
 			response = append(response, cur)
 		}
@@ -184,6 +188,7 @@ func GetMoviesByDirector(directorName string) ([]movieModel.MovieBasicDetailResp
 				Category:     all[i].Category,
 				Views:        all[i].Views,
 				TrailerLink:  all[i].TrailerLink,
+				MovieImage:   all[i].MovieImage,
 			}
 			response = append(response, cur)
 		}
