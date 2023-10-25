@@ -4,12 +4,14 @@ import (
 	moviesRouter "backend_proj_os/routes/movies"
 	testRouter "backend_proj_os/routes/test"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	routes := gin.New()
 
+	routes.Use(cors.Default())
 	testRouter.TestRoute(routes)
 	moviesRouter.MoviesRouter(routes)
 
